@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".PrincipalRegistrationActivity"
+    android:background="@mipmap/noam2">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layoutDirection="ltr">
+
+
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ll_mainHolder"
+        android:layoutDirection="ltr">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_titleHolder"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="20dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/tv_supersub"
+                android:id="@+id/textView4"
+                android:layout_marginTop="26dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ffffffff"
+                android:paddingBottom="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/string_principal_reg"
+                android:id="@+id/textView9"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ffffffff" />
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_personTviewsHolder">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/firstNameWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#b500ffee">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/activity_pr_et_firstName"
+                android:layout_gravity="right"
+                android:hint="@string/et_firstName"
+                android:paddingBottom="10dp"
+                android:textColor="#ffffffff"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/lastNameWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#B500FFEE">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/activity_pr_et_lastName"
+                android:layout_gravity="right"
+                android:hint="@string/et_last_name"
+                android:paddingBottom="10dp"
+                android:textColor="#ffffffff"
+                android:imeOptions="actionNext"
+                android:singleLine="true"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+            android:id="@+id/usernameWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#B500FFEE">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/activity_pr_et_userName"
+                    android:layout_gravity="right"
+                    android:hint="@string/et_username"
+                    android:paddingBottom="10dp"
+                    android:textColor="#ffffffff"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+            <android.support.design.widget.TextInputLayout
+            android:id="@+id/passwordWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#B500FFEE">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/activity_pr_et_password"
+                android:layout_gravity="right"
+                android:paddingBottom="10dp"
+                android:hint="@string/et_password"
+                android:textColor="#ffffffff"
+                android:imeOptions="actionDone"
+                android:singleLine="true"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_schoolCityBtnHolder"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp"
+            android:layoutDirection="ltr">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/activity_pr_tv_schoolCity"
+                    android:textColor="#40fffc"
+                    android:text="@string/et_school_city"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/activity_pr_tv_schoolCityValue"
+                    android:textColor="#ffffffff"
+                    android:textSize="16dp"
+                    android:layoutDirection="ltr"/>
+            </LinearLayout>
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_select"
+                    android:id="@+id/activity_pr_btn_schoolCity"
+                android:textColor="@drawable/btn_submit_text"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_schoolNameBtnHolder"
+            android:paddingBottom="20dp"
+            android:layoutDirection="ltr">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/activity_pr_tv_schoolName"
+                    android:textColor="#40fffc"
+                    android:text="@string/tv_school_name"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/activity_pr_tv_schoolNameValue"
+                    android:textColor="#ffffffff"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_select"
+                android:id="@+id/activity_pr_btn_schoolName"
+                android:textColor="@drawable/btn_submit_text"
+                android:layout_weight="1"
+                android:layoutDirection="ltr"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_prSubmitBtnHolder">
+
+            <Button
+                android:id="@+id/activity_pr_btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_register"
+                android:textColor="@drawable/btn_submit_text"
+                android:layout_gravity="bottom" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/ll_schoolCityTvHolder"
+            android:visibility="invisible">
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

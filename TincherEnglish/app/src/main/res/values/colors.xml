@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <item name="cyan" type="color">#40fffc</item>
+    <item name="grey" type="color">#bebebe</item>
+    <item name="transparent" type="color">#00000000</item>
+    <item name="almostTrans" type="color">#80000000</item>
+    <item name="almostTrans2" type="color">#9a000000</item>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#696969</color>
+    <color name="colorAccent">#40fffc</color>
+</resources>

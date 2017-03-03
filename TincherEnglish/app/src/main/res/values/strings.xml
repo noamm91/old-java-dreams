@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">SuperSub</string>
+    <string name="action_settings">Settings</string>
+    <string name="tv_subtitle">View as:</string>
+    <string name="rb_teacher">Teacher</string>
+    <string name="rb_principal">Principal</string>
+    <string name="et_username">Username</string>
+    <string name="et_password">Password</string>
+    <string name="btn_enter">Login</string>
+    <string name="tv_login">Login</string>
+    <string name="tv_supersub">SuperSub</string>
+    <string name="btn_register">Sign Up</string>
+    <string name="tv_register">Sign Up</string>
+    <string name="et_firstName">First name:</string>
+    <string name="tv_teacherRegistration">Sign Up - Teacher</string>
+    <string name="Age_Number">מספר</string>
+
+    <string name="setAge_Button">Select Age</string>
+    <string name="string_principal_reg">Sign Up</string>
+    <string name="tv_pageTitle">Personal Zone</string>
+    <string name="facebook_app_id">1185955201471527</string>
+    <string name="btn_facebook_login">Facebook Login</string>
+    <string name="et_phone">Please enter phone number (optional)</string>
+    <string name="et_mail">Please enter mail</string>
+    <string name="createPrincipalAccount">Sign up as principal</string>
+    <string name="createTeacherAccount">Sign up as teacher</string>
+    <string name="registerTitle">Sign Up</string>
+    <string name="et_last_name">Last name: </string>
+    <string name="et_address">Please enter address</string>
+    <string name="tv_age">Age: </string>
+    <string name="btn_select">Select</string>
+    <string name="tv_school_type">School Type: </string>
+    <string name="tv_education">Education: </string>
+    <string name="et_school_city">School City: </string>
+    <string name="tv_school_name">School Name: </string>
+</resources>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".LoginActivity"
+    tools:showIn="@layout/activity_login_page"
+    android:background="@mipmap/noam2">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="ltr">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:padding="15dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layoutDirection="ltr">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_titlesHolder">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/tv_supersub"
+                    android:id="@+id/tv_title"
+                    android:layout_marginTop="26dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#ffffffff"
+                    android:paddingBottom="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/tv_login"
+                    android:id="@+id/tv_subtitle"
+                    android:textColor="#ffffffff"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/tv_subtitle"
+                    android:id="@+id/tv_subtitle2"
+                    android:layout_marginTop="27dp"
+                    android:layout_below="@+id/tv_title"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textColor="#ffffffff"
+                    android:paddingBottom="5dp"
+                    android:layoutDirection="ltr"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_RadioGroupHolder"
+                android:layoutDirection="ltr">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/tv_subtitle2"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/activity_login_rg_userType">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rb_teacher"
+                        android:id="@+id/activity_login_rb_teacher"
+                        android:checked="true"
+                        android:textColor="#ffffffff"
+                        android:paddingBottom="5dp" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rb_principal"
+                        android:id="@+id/activity_login_rb_principal"
+                        android:checked="false"
+                        android:textColor="#ffffffff"
+                        android:paddingBottom="5dp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_textFieldsHolder">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/usernameWrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#b500ffee">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:id="@+id/activity_login_et_username"
+                        android:hint="Username:"
+                        android:layout_alignParentLeft="true"
+                        android:textColor="#ffffffff"
+                        android:textColorHint="#b500ffee"
+                        android:paddingBottom="22dp"
+                        android:textDirection="rtl"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/passwordWrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#b500ffee">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/activity_pr_et_password"
+                    android:hint="@string/et_password"
+                    android:layout_below="@+id/activity_pr_et_userName"
+                    android:textColor="#ffffffff"
+                    android:textColorHint="#b500ffee"
+                    android:paddingBottom="22dp"
+                    android:textDirection="rtl"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_enter"
+                    android:id="@+id/activity_login_btn_login"
+                    android:layout_below="@+id/activity_pr_et_password"
+                    android:layout_alignLeft="@+id/tv_title"
+                    android:layout_alignStart="@+id/tv_title"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="0.12"
+                    android:textSize="25dp"
+                    android:textColor="@drawable/btn_submit_text"
+                    android:enabled="true"
+                    android:paddingBottom="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/createTeacherAccount"
+                    android:id="@+id/activity_login_tv_teacherReg"
+                    android:layout_gravity="right"
+                    android:textColor="#00ffee"
+                    android:clickable="true"
+                    android:contextClickable="true"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/createPrincipalAccount"
+                    android:id="@+id/activity_login_tv_principalReg"
+                    android:layout_gravity="right"
+                    android:textColor="#00ffee"
+                    android:clickable="true"
+                    android:contextClickable="true"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_register"
+                android:id="@+id/activity_login_btn_register"
+                android:layout_gravity="right"
+                android:textSize="20dp"
+                android:visibility="invisible" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_facebook_login"
+                android:id="@+id/activity_login_btn_flogin"
+                android:layout_gravity="right"
+                android:textSize="20dp"
+                android:visibility="invisible" />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

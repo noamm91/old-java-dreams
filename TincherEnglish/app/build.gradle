@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+    // added repositories code
+    repositories {
+        // Adding mavenCentral repository for Facebook SDK
+        mavenCentral()
+    }
+    defaultConfig {
+        applicationId 'com.supersub.noamm_000.tincherfirsttry'
+        // Noam changed Min SDK to 17 (was 14) to make android:layoutDirection="rtl" possible
+        minSdkVersion 17
+        //minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:design:23.3.0'
+    // Adding Facebook SDK
+    compile 'com.facebook.android:facebook-android-sdk:4.0.0'
+}

@@ -1,0 +1,12 @@
+IdName: SuperSubFLogin
+mail: noamm91@gmail.com
+type: education
+
+key hash (debug):
+3ZLW/TAqPvR43Zh79ejFQDOdka8=
+
+
+ <com.facebook.login.widget.LoginButton
+            android:id="@id/facebookLoginBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>

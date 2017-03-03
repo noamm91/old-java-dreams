@@ -1,0 +1,34 @@
+1. fix crashed if not chosen one of the enum values in regestration - fixed
+2. making everything secure php
+3. making normal error message if trying to register with username already existing - fixed
+4. adding phone number and mail - fixed
+
+
+5. uploading everything to real hosting - fixed
+
+6. making everything looks good:
+	changing buttons to pictureButtons
+	making good backgroundImage(s)
+
+7. btn for reveal phone number and update watched list - fixed
+8. add a search option in teacher table to quickly find relevant records
+9. making each row heighlight when chosen - fixed
+
+10. Making proncipal personal zone
+
+
+<android.support.v7.widget.Toolbar
+            android:id="@+id/activity_loginPage_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimaryDark"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+
+Toolbar toolbar = (Toolbar) findViewById(R.id.activity_loginPage_toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("SuperSub");
+               
