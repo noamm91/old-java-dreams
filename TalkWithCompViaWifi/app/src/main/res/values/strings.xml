@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TalkWithCompViaWifi</string>
+    <string name="btnConnect">Connect</string>
+    <string name="etIp">10.0.0.14</string>
+    <string name="etPort">702</string>
+</resources>
