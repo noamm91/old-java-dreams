@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     boolean isConnected = false;
     ConnectToServerAsyncTask connectToServerAsyncTask = null;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void socketOperationRequest(View view) {
-
         if (!isConnected) {
             connectToServerAsyncTask = new ConnectToServerAsyncTask(MainActivity.this);
         }
@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
             }
             case R.id.btn_closeSocket:
             {
-                connectToServerAsyncTask.cancel(true);
                 isConnected = false;
+                connectToServerAsyncTask.cancel(true);
                 btnCloseSocket.setEnabled(false);
                 btnConnect.setEnabled(true);
                 break;
