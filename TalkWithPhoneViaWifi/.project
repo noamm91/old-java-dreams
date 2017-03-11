@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>CommonServerAndClient</name>
+			<type>2</type>
+			<location>C:/Users/noamm_000/git/projects/TalkWithCompViaWifi/app/src/main/java/com/example/noamm_000/talkwithcompviawifi/CommonServerAndClient</location>
+		</link>
+	</linkedResources>
 </projectDescription>
