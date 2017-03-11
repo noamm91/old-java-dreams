@@ -12,41 +12,113 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layoutDirection="ltr">
 
-        <EditText
-            android:layout_width="234dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_ip"
-            android:layout_above="@+id/btn_connect"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="46dp"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/etIp" />
-
-        <EditText
-            android:layout_width="231dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_port"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/etPort" />
-
-        <Button
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btnConnect"
-            android:id="@+id/btn_connect"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal"
-            android:onClick="socketOperationRequest" />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/tv_ip"
+                android:id="@+id/textView2"
+                android:paddingRight="10dp" />
+
+            <EditText
+                android:layout_width="234dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_ip"
+                android:layout_above="@+id/btn_connect"
+                android:layout_centerHorizontal="true"
+                android:text="@string/etIp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Close Socket"
-            android:id="@+id/btn_closeSocket"
-            android:layout_gravity="center_horizontal"
-            android:onClick="socketOperationRequest" />
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/tv_port"
+                android:id="@+id/textView"
+                android:paddingRight="62dp" />
+
+            <EditText
+                android:layout_width="231dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_port"
+                android:text="@string/etPort" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="40dp"
+                android:id="@+id/rg_axis">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb_y"
+                    android:id="@+id/rb_y"
+                    android:checked="false"
+                    android:enabled="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb_x"
+                    android:id="@+id/rb_x"
+                    android:enabled="false" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb_both"
+                    android:id="@+id/rb_both"
+                    android:checked="true" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnConnect"
+                android:id="@+id/btn_connect"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:onClick="socketOperationRequest"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Close Socket"
+                android:id="@+id/btn_closeSocket"
+                android:layout_gravity="center_horizontal"
+                android:onClick="socketOperationRequest"
+                android:layout_weight="1" />
+        </LinearLayout>
+
     </LinearLayout>
+
 </RelativeLayout>
