@@ -21,6 +21,7 @@ import javax.swing.JRadioButton;
 public class GUI implements ActionListener {
 
 	private JFrame frmServerSide;
+	private JScrollPane scrollPane;
 	private JTextField tfPort;
 	private JButton btnConnectAndSend;
 	private JTextArea taControlLog;
@@ -71,7 +72,7 @@ public class GUI implements ActionListener {
 		rbFloat.setBounds(158, 7, 109, 23);
 		frmServerSide.getContentPane().add(rbFloat);
 		
-		JRadioButton rbObject = new JRadioButton("Object");
+		rbObject = new JRadioButton("Object");
 		rbObject.setSelected(true);
 		rbObject.setBounds(158, 36, 109, 23);
 		frmServerSide.getContentPane().add(rbObject);
@@ -84,7 +85,7 @@ public class GUI implements ActionListener {
 		lblPort.setBounds(10, 11, 37, 14);
 		frmServerSide.getContentPane().add(lblPort);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 155, 207, 95);
 		frmServerSide.getContentPane().add(scrollPane);
 		
@@ -145,7 +146,6 @@ public class GUI implements ActionListener {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				//System.out.println("No port provided, set to default: 700");
 			}
 		btnConnectAndSend.setEnabled(false);
 		server.execute();
