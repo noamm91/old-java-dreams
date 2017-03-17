@@ -2,10 +2,12 @@
     <string name="app_name">TalkWithCompViaWifi</string>
     <string name="btnConnect">Connect</string>
     <string name="etIp">10.0.0.8</string>
-    <string name="etPort">702</string>
+    <string name="etPort">700</string>
     <string name="rb_y">Only Y axis data</string>
     <string name="rb_x">Only X axis data</string>
-    <string name="rb_both">Both axis data</string>
     <string name="tv_ip">IP Address:</string>
     <string name="tv_port">Port:</string>
+    <string name="rb_both">Track Gyroscope</string>
+    <string name="rb_screen">Track Finger</string>
+    <string name="btn_close_socket">Close Socket</string>
 </resources>

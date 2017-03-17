@@ -7,6 +7,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.noamm_000.talkwithcompviawifi.CommonServerAndClient.DataObject;
@@ -14,8 +15,11 @@ import com.example.noamm_000.talkwithcompviawifi.CommonServerAndClient.DataObjec
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.net.ConnectException;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 
@@ -25,34 +29,25 @@ import java.nio.ByteBuffer;
 public class ConnectAndSendAsyncTask extends AsyncTask<String,String,String> implements SensorEventListener {
 
     //private DataObject dataObject;
+    private Button btnConnect;
+    private Button btnCancel;
     private ObjectOutputStream objectOutputStream;
     private boolean isUpCliked;
     private boolean isDownClicked;
     private String mode;
-    //private boolean keyPressed;
+    private boolean isConnected;
     private float UoD;
     private Context context;
     private Socket socket;
     private OutputStream os;
-    //private byte[] floatValX = new byte[4];
-    //private byte[] floatValY = new byte[4];
-    //private byte[] floatValPressed = new byte[4];
-    private final static String TAG = "ASYNCTASK LOGGER: ";
+    private final static String TAG = "GYRO ASYNCTASK LOGGER: ";
 
-    public ConnectAndSendAsyncTask(Context ctx, String mode) {
+    public ConnectAndSendAsyncTask(Context ctx, String mode, Button btnConnect, Button btnCancel) {
         this.context = ctx;
         this.mode = mode;
-        //keyPressed = false;
+        this.btnConnect = btnConnect;
+        this.btnCancel = btnCancel;
     }
-
-    /*
-    public void setKeyPressed(boolean keyPressed, float UorD, boolean isUpCliked, boolean isDownClicked) {
-        //this.keyPressed = keyPressed;
-        this.UoD = UorD;
-        this.isUpCliked = isUpCliked;
-        this.isDownClicked = isDownClicked;
-    }
-    */
 
     public void setKeyPressed(boolean isUpCliked, boolean isDownClicked) {
         this.isUpCliked = isUpCliked;
@@ -60,35 +55,51 @@ public class ConnectAndSendAsyncTask extends AsyncTask<String,String,String> imp
     }
 
     @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        btnConnect.setEnabled(false);
+        btnCancel.setEnabled(false);
+    }
+
+    @Override
     protected String doInBackground(String... strings) {
 
         String IP = strings[0];
         String port = strings[1];
-        //String mode = strings[2];
-        //this.mode = mode;
         try {
             InetAddress inetIP = InetAddress.getByName(IP);
-            socket = new Socket(inetIP, Integer.parseInt(port));
+            socket = new Socket();
+            socket.connect(new InetSocketAddress(inetIP, Integer.parseInt(port)), 2000);
+            publishProgress("Connected!");
             os = socket.getOutputStream();
             objectOutputStream = new ObjectOutputStream(os);
-            publishProgress("Send packet");
 
             SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
             Sensor gyro = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
             sensorManager.registerListener(this, gyro, SensorManager.SENSOR_DELAY_NORMAL);
 
             while (!this.isCancelled()) {
-                Thread.sleep(500);
+                Thread.sleep(2000);
             }
             sensorManager.unregisterListener(this, gyro);
 
         } catch (UnknownHostException e) {
-            publishProgress("Exception");
+            publishProgress("Unknown host exception occurred");
+            e.printStackTrace();
+        } catch (SocketTimeoutException e) {
+            publishProgress("Socket timeout exception occurred");
+            e.printStackTrace();
+        } catch (ConnectException e) {
+            publishProgress("Connect exception occurred");
             e.printStackTrace();
         } catch (IOException e) {
-            publishProgress("Exception2");
+            publishProgress("IO exception occurred");
             e.printStackTrace();
         } catch (InterruptedException e) {
+            publishProgress("Interrupted Exception occurred");
+            e.printStackTrace();
+        } catch (Exception e) {
+            publishProgress("General Exception occurred");
             e.printStackTrace();
         }
         return null;
@@ -99,14 +110,28 @@ public class ConnectAndSendAsyncTask extends AsyncTask<String,String,String> imp
         super.onProgressUpdate(values);
         String message = values[0];
         Toast.makeText(this.context, message, Toast.LENGTH_LONG).show();
+        if(message.equals("Connected!")) {
+            btnCancel.setEnabled(true);
+            btnConnect.setEnabled(false);
+            this.isConnected = true;
+        }
+        if(message.contains("exception")) {
+            btnConnect.setEnabled(true);
+            MainActivity.isConnected = false;
+            this.isConnected = false;
+        }
     }
     @Override
     protected void onCancelled() {
         super.onCancelled();
         try {
+            Log.d(TAG, "INSIDE ON CANCELED METHOD");
             os.flush();
             os.close();
             socket.close();
+            MainActivity.isConnected = false;
+            btnConnect.setEnabled(true);
+            btnCancel.setEnabled(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -114,49 +139,14 @@ public class ConnectAndSendAsyncTask extends AsyncTask<String,String,String> imp
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if (!this.isCancelled()) {
-            /*
-            if(mode.equals("y")) {
-                float data = sensorEvent.values[0];
-                data *= 16;
-                floatValY = ByteBuffer.allocate(4).putFloat(data).array();
-                floatValPressed = ByteBuffer.allocate(4).putFloat(UoD).array();
-                Log.d(TAG , Float.toString(data));
-                try {
-                    if(!keyPressed) {
-                        os.write(floatValY);
-                    }
-                    else {
-                        keyPressed = false;
-                        os.write(floatValPressed);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            else if(mode.equals("x")) {
-                float data = sensorEvent.values[1];
-                data *= 16;
-                floatValX = ByteBuffer.allocate(4).putFloat(data).array();
-                floatValPressed = ByteBuffer.allocate(4).putFloat(UoD).array();
-                Log.d(TAG, Float.toString(data));
-                try {
-                    if (!keyPressed) {
-                        os.write(floatValX);
-                    } else {
-                        keyPressed = false;
-                        os.write(floatValPressed);
-                    }
-                }catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }*/
+        if((!isCancelled()) && (this.isConnected)) {
             if(mode.equals("both")) {
                 DataObject dataObject = new DataObject(sensorEvent.values[1]*16, sensorEvent.values[0]*16, this.isUpCliked, this.isDownClicked);
                 this.isUpCliked = false;
                 this.isDownClicked = false;
                 try {
                     objectOutputStream.writeObject(dataObject);
+                    Log.d(TAG, Float.toString(dataObject.getxDelta()));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

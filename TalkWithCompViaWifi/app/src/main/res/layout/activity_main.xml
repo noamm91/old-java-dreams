@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.noamm_000.talkwithcompviawifi.MainActivity">
+    tools:context="com.example.noamm_000.talkwithcompviawifi.MainActivity"
+    android:id="@+id/main_rl">
 
     <LinearLayout
         android:orientation="vertical"
@@ -26,15 +27,15 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/tv_ip"
                 android:id="@+id/textView2"
-                android:paddingRight="10dp" />
+                android:paddingEnd="10dp"
+                android:paddingStart="0dp" />
 
             <EditText
                 android:layout_width="234dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_ip"
-                android:layout_above="@+id/btn_connect"
-                android:layout_centerHorizontal="true"
-                android:text="@string/etIp" />
+                android:text="@string/etIp"
+                android:inputType="numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,13 +50,15 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/tv_port"
                 android:id="@+id/textView"
-                android:paddingRight="62dp" />
+                android:paddingEnd="62dp"
+                android:paddingStart="0dp"/>
 
             <EditText
                 android:layout_width="231dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_port"
-                android:text="@string/etPort" />
+                android:text="@string/etPort"
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -72,24 +75,15 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/rb_y"
-                    android:id="@+id/rb_y"
-                    android:checked="false"
-                    android:enabled="false" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/rb_x"
-                    android:id="@+id/rb_x"
-                    android:enabled="false" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/rb_both"
                     android:id="@+id/rb_both"
                     android:checked="true" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb_screen"
+                    android:id="@+id/rb_tp" />
             </RadioGroup>
         </LinearLayout>
 
@@ -103,8 +97,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/btnConnect"
                 android:id="@+id/btn_connect"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:onClick="socketOperationRequest"
                 android:layout_weight="1" />
@@ -112,7 +104,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Close Socket"
+                android:text="@string/btn_close_socket"
                 android:id="@+id/btn_closeSocket"
                 android:layout_gravity="center_horizontal"
                 android:onClick="socketOperationRequest"
